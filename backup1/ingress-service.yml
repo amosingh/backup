@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tomcat-service-ingress
+  annotations:
+    
+spec:
+  rules:
+    - host: amod.ml
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: jenkins-service-ingess
+            servicePort: 80
+        - path: /bar
+          backend:
+            serviceName: tomcat-service-ingess
+            servicePort: 80

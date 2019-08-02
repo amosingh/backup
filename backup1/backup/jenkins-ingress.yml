@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins-ingress
+  annotations:
+    ingress.appscode.com/type: NodePort
+spec:
+  rules:
+  - host: amod.ml
+    http:
+      port: 8080
+      nodePort: 31107
+      paths:
+      - path:
+        backend:
+          serviceName: jenkins-service
+          servicePort: 80
+      - path: /bar
+        backend:
+          serviceName: tomcat-service
+          servicePort: 80

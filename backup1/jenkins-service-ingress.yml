@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jenkins-service-ingess
+spec:
+  selector:
+    app: jenkins
+  ports:
+    - port: 80

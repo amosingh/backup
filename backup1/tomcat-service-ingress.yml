@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: tomcat-service-ingess
+spec:
+  selector:
+    app: tomcat
+  ports:
+    - port: 80

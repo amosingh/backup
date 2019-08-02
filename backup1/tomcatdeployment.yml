@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: efk-java
+  labels:
+    app: efk-java
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: efk-java
+  template:
+    metadata:
+      labels:
+        app: efk-java
+    spec:
+      containers:
+      - name: efk-java
+        image: amosingh/tomcat-java:efkjava
+        ports:
+        - containerPort: 8080
